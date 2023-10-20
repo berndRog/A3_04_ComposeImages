@@ -34,7 +34,7 @@ class ImageViewModelTest {
    val activityScenarioRule = ActivityScenarioRule(MainActivity::class.java)
 
 
-   private lateinit var imageViewModel: ImageViewModel
+   private lateinit var imageViewModel: ImagesViewModel
 
    @Mock
    private lateinit var mockDogs: MutableList<Dog>
@@ -56,7 +56,7 @@ class ImageViewModelTest {
       runBlocking {
          withContext(Dispatchers.Main) { // Run this block on the main thread
             lifecycleRegistry.handleLifecycleEvent(Lifecycle.Event.ON_RESUME)
-            imageViewModel = ImageViewModel(context)
+            imageViewModel = ImagesViewModel(context)
             imageViewModel.onDogsChange(imageViewModel.initialDogs)
          }
       }

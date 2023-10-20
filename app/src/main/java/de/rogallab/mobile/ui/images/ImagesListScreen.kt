@@ -33,7 +33,7 @@ import java.util.*
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ImageScreen(
-   viewModel: ImageViewModel
+   viewModel: ImagesViewModel
 ) {
    val tag = "ok>ImageScreen        ."
    logDebug(tag, "Start")

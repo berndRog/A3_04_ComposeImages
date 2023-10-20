@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 import de.rogallab.mobile.R
 import de.rogallab.mobile.model.Dog
 
-class ImageViewModel(
+class ImagesViewModel(
    private val _context: Context
 ): ViewModel() {
 

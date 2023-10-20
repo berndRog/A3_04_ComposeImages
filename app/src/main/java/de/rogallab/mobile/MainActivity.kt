@@ -20,8 +20,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.ViewModelProvider
-import de.rogallab.mobile.ui.images.ImageViewModel
-import de.rogallab.mobile.ui.images.ImageViewModelFactory
+import de.rogallab.mobile.ui.images.ImagesViewModel
+import de.rogallab.mobile.ui.images.ImagesViewModelFactory
 import de.rogallab.mobile.ui.images.ImageScreen
 import de.rogallab.mobile.ui.theme.AppTheme
 
@@ -29,9 +29,9 @@ class MainActivity : BaseActivity(tag) {
    override fun onCreate(savedInstanceState: Bundle?) {
       super.onCreate(savedInstanceState)
 
-      val viewModelFactory = ImageViewModelFactory(this.applicationContext)
+      val viewModelFactory = ImagesViewModelFactory(this.applicationContext)
       val viewModel = ViewModelProvider(this, viewModelFactory)
-         .get(ImageViewModel::class.java)
+         .get(ImagesViewModel::class.java)
 
 
       setContent {
