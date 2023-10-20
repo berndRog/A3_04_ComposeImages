@@ -122,8 +122,8 @@ dependencies {
    androidTestImplementation(platform("androidx.compose:compose-bom:2023.10.01"))
    androidTestImplementation("androidx.compose.ui:ui-test-junit4")
    debugImplementation("androidx.compose.ui:ui-tooling")
-   val uiTestManifest = "1.5.3"
-   debugImplementation("androidx.compose.ui:ui-test-manifest:1.5.4")
+   val uiTestManifest = "1.5.4"
+   debugImplementation("androidx.compose.ui:ui-test-manifest:$uiTestManifest")
 
    // To use coroutines during test
    androidTestImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:$kotlinCoroutines")
