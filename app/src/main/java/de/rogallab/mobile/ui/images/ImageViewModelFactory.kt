@@ -1,4 +1,4 @@
-package de.rogallab.mobile.ui.image
+package de.rogallab.mobile.ui.images
 
 import android.content.Context
 import androidx.lifecycle.ViewModel

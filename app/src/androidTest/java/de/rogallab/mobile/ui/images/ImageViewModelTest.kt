@@ -1,7 +1,6 @@
-package de.rogallab.mobile.ui.image
+package de.rogallab.mobile.ui.images
 
 import android.content.Context
-import androidx.compose.runtime.snapshots.SnapshotStateList
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LifecycleRegistry
@@ -12,15 +11,11 @@ import de.rogallab.mobile.MainActivity
 import de.rogallab.mobile.R
 import de.rogallab.mobile.model.Dog
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.TestCoroutineDispatcher
-import kotlinx.coroutines.test.TestCoroutineScope
 import kotlinx.coroutines.test.resetMain
-import kotlinx.coroutines.test.runBlockingTest
 import kotlinx.coroutines.test.setMain
 import kotlinx.coroutines.withContext
-import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Rule
@@ -31,7 +26,6 @@ import org.junit.runner.RunWith
 import org.mockito.Mock
 import org.mockito.Mockito
 import org.mockito.MockitoAnnotations
-import kotlin.coroutines.ContinuationInterceptor
 
 @RunWith(AndroidJUnit4::class)
 class ImageViewModelTest {

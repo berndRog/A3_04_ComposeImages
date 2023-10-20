@@ -3,16 +3,26 @@ package de.rogallab.mobile
 
 import android.os.Bundle
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.lifecycle.ViewModelProvider
-import de.rogallab.mobile.ui.image.ImageViewModel
-import de.rogallab.mobile.ui.image.ImageViewModelFactory
-import de.rogallab.mobile.ui.image.ImageScreen
+import de.rogallab.mobile.ui.images.ImageViewModel
+import de.rogallab.mobile.ui.images.ImageViewModelFactory
+import de.rogallab.mobile.ui.images.ImageScreen
 import de.rogallab.mobile.ui.theme.AppTheme
 
 class MainActivity : BaseActivity(tag) {
@@ -51,28 +61,25 @@ class MainActivity : BaseActivity(tag) {
 @Composable
 fun Preview() {
 
-
    AppTheme {
 
-//      val text = stringResource(id = R.string.dog_01)
-//
-//      Column(
-//         horizontalAlignment = Alignment.CenterHorizontally,
-//         modifier = Modifier
-//            .fillMaxWidth()
-//            .padding(all = 8.dp)
-//      ) {
-//         Image(
-//            painter = painterResource(id = R.drawable.dog_01),
-//            contentDescription = text,
-//            contentScale = ContentScale.Crop
-//         )
-//         Text(
-//            text = text,
-//            style = MaterialTheme.typography.bodyMedium
-//         )
-//      }
+      val text = stringResource(id = R.string.dog_01)
 
-
+      Column(
+         horizontalAlignment = Alignment.CenterHorizontally,
+         modifier = Modifier
+            .fillMaxWidth()
+            .padding(all = 8.dp)
+      ) {
+         Image(
+            painter = painterResource(id = R.drawable.dog_01),
+            contentDescription = text,
+            contentScale = ContentScale.Crop
+         )
+         Text(
+            text = text,
+            style = MaterialTheme.typography.bodyMedium
+         )
+      }
    }
 }

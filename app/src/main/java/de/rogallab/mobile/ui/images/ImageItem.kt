@@ -1,4 +1,4 @@
-package de.rogallab.mobile.ui.image.composables
+package de.rogallab.mobile.ui.images
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable

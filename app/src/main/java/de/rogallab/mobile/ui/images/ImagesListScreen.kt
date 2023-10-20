@@ -1,8 +1,7 @@
 @file:OptIn(ExperimentalMaterial3Api::class)
 
-package de.rogallab.mobile.ui.image
+package de.rogallab.mobile.ui.images
 
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -26,8 +25,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import de.rogallab.mobile.R
 import de.rogallab.mobile.model.Dog
-import de.rogallab.mobile.ui.image.composables.ImageItem
-import de.rogallab.mobile.ui.image.composables.SelectLazyRow
 import de.rogallab.mobile.utilities.logDebug
 import java.util.*
 
