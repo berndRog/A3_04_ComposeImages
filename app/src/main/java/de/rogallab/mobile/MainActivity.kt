@@ -4,10 +4,12 @@ package de.rogallab.mobile
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -72,6 +74,8 @@ fun Preview() {
             .padding(all = 8.dp)
       ) {
          Image(
+            modifier = Modifier.size(250.dp,300.dp)
+               .border(1.dp, color = MaterialTheme.colorScheme.tertiary),
             painter = painterResource(id = R.drawable.dog_01),
             contentDescription = text,
             contentScale = ContentScale.Crop

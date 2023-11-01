@@ -39,7 +39,7 @@ fun ImageScreen(
    logDebug(tag, "Start")
 
    var selectedDog: Dog by remember {
-      mutableStateOf(value = Dog(R.string.dog_01, R.drawable.dog_01))
+      mutableStateOf(value = Dog("no name", R.drawable.dog_01))
    }
 
    Column(

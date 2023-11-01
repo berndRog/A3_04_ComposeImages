@@ -10,7 +10,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import de.rogallab.mobile.model.Dog
 import de.rogallab.mobile.utilities.logDebug
 
@@ -30,7 +29,7 @@ fun ImageItem(
 //          .border(1.dp, color = MaterialTheme.colors.secondary)
    ) {
 
-      val text = stringResource(id = dog.resourceName)
+      val text = dog.name ?: ""
 
       Image(
          painter = painterResource(dog.resourcePicture),
