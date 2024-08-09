@@ -13,5 +13,5 @@ dependencyResolutionManagement {
    }
 }
 
-rootProject.name = "A3_04_ComposeImages"
+rootProject.name = "A3_04_LazyRow&Images"
 include(":app")

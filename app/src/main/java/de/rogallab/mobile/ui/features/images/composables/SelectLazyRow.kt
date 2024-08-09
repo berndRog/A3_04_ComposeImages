@@ -1,4 +1,4 @@
-package de.rogallab.mobile.ui.images
+package de.rogallab.mobile.ui.features.images.composables
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.size
@@ -7,23 +7,20 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import de.rogallab.mobile.model.Dog
-import de.rogallab.mobile.utilities.logDebug
+import de.rogallab.mobile.domain.entities.DogImage
+import de.rogallab.mobile.domain.utilities.logDebug
 
 @Composable
 fun SelectLazyRow(
-   dogs: List<Dog>,            // State ↓
-   onDogSelect: (Dog) -> Unit  // Event ↑
+   dogs: List<DogImage>,            // State ↓
+   onDogSelect: (DogImage) -> Unit  // Event ↑
 ) {
-   val tag = "ok>SelectLazyRow      ."
-   logDebug(tag, "")
+   val tag = "[SelectLazyRow]"
 
    LazyRow(
       horizontalArrangement = Arrangement.spacedBy(8.dp)
    ) {
-      items(
-         items = dogs
-      ) { dog ->
+      items( items = dogs ) { dog ->
          ImageItem(
             dog = dog,
             onClick = {
