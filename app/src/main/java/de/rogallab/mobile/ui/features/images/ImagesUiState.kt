@@ -6,5 +6,4 @@ import de.rogallab.mobile.domain.entities.DogImage
 @Immutable
 data class ImagesUiState (
    val dogs: List<DogImage> = emptyList(),
-   val throwable: Throwable? = null
 )

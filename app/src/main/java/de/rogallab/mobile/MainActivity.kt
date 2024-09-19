@@ -39,7 +39,7 @@ class MainActivity : BaseActivity(TAG) {
       const val ISINFO = true
       const val ISDEBUG = true
       const val ISVERBOSE = true
-      private const val TAG = "[MainActivity]"
+      private const val TAG = "<-MainActivity"
    }
 }
 

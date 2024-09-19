@@ -12,12 +12,14 @@ import de.rogallab.mobile.domain.utilities.logDebug
 
 @Composable
 fun SelectLazyRow(
+   modifier: Modifier = Modifier,
    dogs: List<DogImage>,            // State ↓
    onDogSelect: (DogImage) -> Unit  // Event ↑
 ) {
-   val tag = "[SelectLazyRow]"
+   val tag = "<-SelectLazyRow"
 
    LazyRow(
+      modifier = modifier,
       horizontalArrangement = Arrangement.spacedBy(8.dp)
    ) {
       items( items = dogs ) { dog ->
@@ -28,7 +30,7 @@ fun SelectLazyRow(
                onDogSelect( it )
             },
             modifier = Modifier
-               .size(width = 80.dp, height = 80.dp)
+               .size(width = 80.dp, height = 110.dp)
          )
       }
    }

@@ -36,7 +36,7 @@ class ImagesViewModel(
       when(val resultData = _repository.getAll()) {
          is ResultData.Success -> {
             logDebug(TAG, "Dogs fetched successfully")
-            onDogsChange(resultData.data)
+            onChangeDogs(resultData.data)
          }
          is ResultData.Error -> {
             val message = "Failed to fetch dogs ${resultData.throwable.localizedMessage}"
@@ -45,64 +45,59 @@ class ImagesViewModel(
       }
    }
 
-   fun onDogsChange(values: List<DogImage>) {
-      // we make a copy of values so that values are not deleted if values == dogs
-      val newDogs = values.toList()
+   fun onChangeDogs(dogs: List<DogImage>) {
       _mutableImagesUiStateFlow.update { it: ImagesUiState ->
-         it.copy(dogs = values.toList())
+         it.copy(
+            dogs = dogs.toList()
+         )
       }
    }
 
-
-   // first state whether the search is happening or not
-   private val _isSearching = MutableStateFlow(false)
-   val isSearching = _isSearching.asStateFlow()
-   fun onToogleSearch(it: Boolean) {
-      logDebug(TAG,"onToogleSearch() it $it")
-      _isSearching.value = !_isSearching.value
-      logDebug(TAG,"onToogleSearch() isSearching ${isSearching.value}")
-      if (!_isSearching.value) {
-         onSearchQueryChange("")
-      }
+   // actual search query
+   // event, when search query input is change by user
+   private val _query = MutableStateFlow("")
+   val query = _query.asStateFlow()
+   fun onQueryChange(text: String) {
+      logDebug(TAG,"onQueryChange() '$text'")
+      _query.update { text }
    }
 
-   // second state the text typed by the user
-   private val _searchQuery = MutableStateFlow("")
-   val searchQuery = _searchQuery.asStateFlow()
-   fun onSearchQueryChange(text: String) {
-      logDebug(TAG,"onSearchQueryChange() $text")
-      _searchQuery.value = text
+   // is searching active?
+   // event, when the user clicks on the search icon to
+   // activate/deactivate searching
+   private val _isActive = MutableStateFlow(false)
+   val isActive = _isActive.asStateFlow()
+   // event, when the user clicks on the search icon to  activate/deactivate searching
+   fun onActiveChange(it: Boolean) {
+      _isActive.update { it }
+      logDebug(TAG,"onActiveChange() isActive ${isActive.value}")
+      if (!_isActive.value) onQueryChange("")
    }
 
-   fun onFilterDogs(searchQuery: String) {
+   // event, when the user triggers the Ime.Search action (Lupe)
+   fun onSearch(searchQuery: String) {
+      logDebug(TAG,"onSearch() searchQuery $searchQuery")
       if (searchQuery.trim().isEmpty()) {
-         onToogleSearch(false)
+         // stop searching
+         onActiveChange(false)
          fetchDogs()
       } else {
+         // filter dogs by search query compared with dog name
          _mutableImagesUiStateFlow.value.dogs
             .filter { dog: DogImage ->
-               val dogNameLower = dog.name!!.lowercase(Locale.getDefault())
-               val searchLower  = searchQuery.lowercase(Locale.getDefault())
+               val dogNameLower = dog.name.lowercase(Locale.getDefault())
+               val searchLower  = searchQuery.trim().lowercase(Locale.getDefault())
                dogNameLower.startsWith(searchLower)  // ^filter
             }
             .apply { // this is the filtered list of dogs
-               onDogsChange(this)
+               onChangeDogs(this)
             }
+         onActiveChange(false)
       }
    }
 
-//   fun filter(
-//   searchText = searchQuery,
-//   dogs = imagesUiState.dogs,
-//   onDogsFiltered = { dogs:List<DogImage> ->
-//      viewModel.onDogsChange(dogs)
-//      // show the first dog in list
-//      if(dogs.isNotEmpty()) selectedDog = dogs[0]
-//   }
-//   )
-
    companion object {
-      const val TAG = "[ImagesViewModel]"
+      const val TAG = "<-ImagesViewModel"
    }
 
 }
